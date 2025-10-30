@@ -1,0 +1,110 @@
+/* Basic layout */
+.app-root {
+    display: flex;
+    min-height: 100vh;
+    position: relative;
+  }
+  
+  /* Sidebar base */
+  .sidebar {
+    background: #1f2937; /* dark */
+    color: #fff;
+    height: 100vh;
+    transition: all 0.25s ease;
+    display: flex;
+    flex-direction: column;
+    z-index: 1050;
+  }
+  
+  /* Desktop default: width 250px */
+  @media (min-width: 768px) {
+    .sidebar {
+      width: 250px;
+      position: relative;
+    }
+  
+    .main-area {
+      transition: margin-left 0.25s ease;
+    }
+  
+    /* when closed on desktop, collapse width */
+    .sidebar.closed {
+      width: 70px;
+    }
+  
+    /* adjust content margin depending on sidebar width */
+    .sidebar-open .main-area {
+      margin-left: 0; /* not necessary because sidebar is sibling */
+    }
+  }
+  
+  /* Mobile: overlay behavior */
+  @media (max-width: 767.98px) {
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 250px;
+      transform: translateX(-110%);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+    }
+  
+    .sidebar.open {
+      transform: translateX(0);
+    }
+  
+    .sidebar.closed {
+      transform: translateX(-110%);
+    }
+  
+    .main-area {
+      width: 100%;
+    }
+  
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.45);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.2s ease;
+      z-index: 1040;
+    }
+  
+    .overlay.show {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+  
+  /* Desktop overlay hidden */
+  .overlay { display: none; }
+  
+  /* Ensure overlay displays only on small screens */
+  @media (max-width: 767.98px) {
+    .overlay { display: block; }
+  }
+  
+  /* Sidebar contents smaller in collapsed mode on desktop */
+  .sidebar.closed .sidebar-header h5,
+  .sidebar.closed .nav-link,
+  .sidebar.closed .sidebar-footer {
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  
+  /* hide link text when collapsed on desktop (optional) */
+  @media (min-width: 768px) {
+    .sidebar.closed .nav-link {
+      padding-left: 0.5rem;
+      font-size: 0.9rem;
+    }
+  }
+  
+  /* make sure main-area scrolls independently */
+  .main-area {
+    min-height: 100vh;
+    overflow: auto;
+  }
+  
