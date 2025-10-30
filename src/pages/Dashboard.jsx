@@ -3,7 +3,7 @@ import React from 'react';
 function Dashboard() {
   return (
     <div>
-      <h2 className="mb-4">Welcome to Hospital Dashboard</h2>
+      <h2 className="mb-4">Welcome to Dashboard</h2>
       <div className="row">
         <div className="col-md-4">
           <div className="card text-center p-3">

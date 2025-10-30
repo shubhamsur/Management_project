@@ -6,7 +6,7 @@ export default function Sidebar({ isOpen, onClose }) {
   return (
     <aside className={`sidebar bg-dark text-white ${isOpen ? "open" : "closed"}`}>
       <div className="sidebar-header p-3 d-flex align-items-center justify-content-between">
-        <h5 className="mb-0">Hospital Management</h5>
+        <h5 className="mb-0">Management</h5>
         {/* small X button for mobile to close */}
         <button className="btn btn-sm btn-light d-md-none" onClick={onClose}>
           ✕
