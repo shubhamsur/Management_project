@@ -1,0 +1,44 @@
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 240px;
+    background-color: #212529;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    z-index: 1000;
+    transition: transform 0.3s ease;
+  }
+  
+  .sidebar.closed {
+    transform: translateX(-100%);
+  }
+  
+  .sidebar.open {
+    transform: translateX(0);
+  }
+  
+  @media (min-width: 768px) {
+    .sidebar {
+      transform: none;
+    }
+  }
+  
+  .sidebar .nav-link {
+    padding: 10px 15px;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 4px;
+  }
+  
+  .sidebar .nav-link:hover {
+    background-color: #495057;
+  }
+  
+  .sidebar-footer {
+    font-size: 0.85rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  

@@ -6,7 +6,9 @@ import Patients from "./pages/Patients";
 import Settings from "./pages/Settings";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-import Addpatients from "./pages/Addpatients"
+import Addpatients from "./pages/Addpatients";
+import AddDisease from "./pages/AddDisease";
+import Gender from "./pages/Gender";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { useAuth } from "./context/AuthContext";
 import "./style.css";
@@ -20,6 +22,8 @@ export default function App() {
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const { user } = useAuth();
 
+  const toggleSidebar = () => setSidebarOpen(!sidebarOpen);
+
   if (!user) {
     return (
       <Routes>
@@ -31,11 +35,14 @@ export default function App() {
   }
 
   return (
-    <div className={`app-root ${sidebarOpen ? "sidebar-open" : "sidebar-closed"}`}>
+    <div className="app-layout">
+      {/* Sidebar */}
       <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
-      <div className="main-area flex-grow-1">
-        <Navbar onToggle={() => setSidebarOpen(!sidebarOpen)} />
-        <div className="container-fluid p-4">
+
+      {/* Main Area */}
+      <div className={`main-content ${sidebarOpen ? "expanded" : "collapsed"}`}>
+        <Navbar onToggle={toggleSidebar} />
+        <div className="page-container">
           <Routes>
             <Route
               path="/"
@@ -66,6 +73,22 @@ export default function App() {
               element={
                 <ProtectedRoute>
                   <Addpatients />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/adddisease"
+              element={
+                <ProtectedRoute>
+                  <AddDisease />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/gender"
+              element={
+                <ProtectedRoute>
+                  <Gender />
                 </ProtectedRoute>
               }
             />

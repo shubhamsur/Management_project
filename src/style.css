@@ -107,4 +107,55 @@
     min-height: 100vh;
     overflow: auto;
   }
+
+  /* General layout */
+.app-layout {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Sidebar fixed to left */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 240px;
+  background-color: #212529;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.sidebar.closed {
+  transform: translateX(-100%);
+}
+
+/* Main content shifts right */
+.main-content {
+  flex-grow: 1;
+  margin-left: 240px;
+  transition: all 0.3s ease;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+}
+
+.main-content.collapsed {
+  margin-left: 0;
+}
+
+.page-container {
+  padding: 20px;
+  overflow-y: auto;
+  height: calc(100vh - 60px); /* adjust for navbar height */
+}
+
+/* Navbar fix */
+nav.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  background-color: #fff;
+}
+
   
