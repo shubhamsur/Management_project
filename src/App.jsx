@@ -9,6 +9,8 @@ import Register from "./pages/Register";
 import Addpatients from "./pages/Addpatients";
 import AddDisease from "./pages/AddDisease";
 import Gender from "./pages/Gender";
+import Adddoctor from "./pages/Adddoctor";
+import PatientsIPD from "./pages/PatientsIPD";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { useAuth } from "./context/AuthContext";
 import "./style.css";
@@ -89,6 +91,22 @@ export default function App() {
               element={
                 <ProtectedRoute>
                   <Gender />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/patientsipd"
+              element={
+                <ProtectedRoute>
+                  <PatientsIPD />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/adddoctor"
+              element={
+                <ProtectedRoute>
+                  <Adddoctor />
                 </ProtectedRoute>
               }
             />
