@@ -11,6 +11,8 @@ import AddDisease from "./pages/AddDisease";
 import Gender from "./pages/Gender";
 import Adddoctor from "./pages/Adddoctor";
 import PatientsIPD from "./pages/PatientsIPD";
+import Profile from "./pages/profile";
+import Addhospital from "./pages/Registerhospital.jsx";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { useAuth } from "./context/AuthContext";
 import "./style.css";
@@ -31,6 +33,7 @@ export default function App() {
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/registerhospital" element={<Addhospital />} />
         <Route path="*" element={<Navigate to="/login" />} />
       </Routes>
     );
@@ -103,6 +106,14 @@ export default function App() {
               }
             />
             <Route
+              path="/profile"
+              element={
+                <ProtectedRoute>
+                  <Profile />
+                </ProtectedRoute>
+              }
+            />
+            <Route
               path="/adddoctor"
               element={
                 <ProtectedRoute>
@@ -110,6 +121,7 @@ export default function App() {
                 </ProtectedRoute>
               }
             />
+            
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
         </div>

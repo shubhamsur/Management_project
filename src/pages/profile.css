@@ -1,0 +1,128 @@
+.profile-container {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+  
+  .profile-header {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .profile-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .profile-info h1 {
+    margin: 0 0 0.25rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+  
+  .profile-username {
+    color: #555;
+    margin: 0 0 0.75rem;
+    font-size: 1rem;
+  }
+  
+  .profile-bio {
+    margin: 0 0 1rem;
+    line-height: 1.5;
+    color: #333;
+  }
+  
+  .profile-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    color: #555;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+  
+  .detail-item {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+  
+  .detail-item a {
+    color: #1da1f2;
+    text-decoration: none;
+  }
+  
+  .detail-item a:hover {
+    text-decoration: underline;
+  }
+  
+  .icon-location::before { content: '📍 '; }
+  .icon-link::before { content: '🔗 '; }
+  .icon-calendar::before { content: '📅 '; }
+  
+  .profile-stats {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 1rem;
+  }
+  
+  .stat {
+    font-weight: 500;
+  }
+  
+  .stat strong {
+    font-weight: 700;
+    margin-right: 0.25rem;
+  }
+  
+  .profile-actions {
+    display: flex;
+    gap: 0.75rem;
+  }
+  
+  .btn-edit,
+  .btn-message {
+    padding: 0.5rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 2rem;
+    background: white;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s;
+  }
+  
+  .btn-edit {
+    background: #000;
+    color: white;
+    border-color: #000;
+  }
+  
+  .btn-edit:hover {
+    background: #333;
+  }
+  
+  .btn-message {
+    color: #333;
+  }
+  
+  .btn-message:hover {
+    background: #f7f7f7;
+  }
+  
+  @media (max-width: 600px) {
+    .profile-header {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+  
+    .profile-stats {
+      justify-content: center;
+    }
+  }

@@ -40,7 +40,7 @@ export default function Sidebar({ isOpen, onClose }) {
               <li><Link className="nav-link text-white-50" to="/adddisease">Disease</Link></li>
               <li><Link className="nav-link text-white-50" to="/gender">Gender</Link></li>
               <li><Link className="nav-link text-white-50" to="/adddoctor">Add Doctor</Link></li>
-              <li><Link className="nav-link text-white-50" to="/settings/profile">Profile</Link></li>
+              <li><Link className="nav-link text-white-50" to="/profile">Profile</Link></li>
               <li><Link className="nav-link text-white-50" to="/settings/password">Password</Link></li>
               <li><Link className="nav-link text-white-50" to="/settings/notifications">Notifications</Link></li>
               <li><Link className="nav-link text-white-50" to="/settings/privacy">Privacy</Link></li>
