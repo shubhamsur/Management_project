@@ -12,7 +12,7 @@ import Gender from "./pages/Gender";
 import Adddoctor from "./pages/Adddoctor";
 import PatientsIPD from "./pages/PatientsIPD";
 import Profile from "./pages/profile";
-import Addhospital from "./pages/Registerhospital.jsx";
+import Addhospital from "./pages/RegisterHospital";
 import AdminDashboard from "./pages/AdminDashboard";
 import SuperAdminDashboard from "./pages/SuperAdminDashboard.jsx";
 import UserDashboard from "./pages/UserDashboard";
