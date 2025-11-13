@@ -9,11 +9,39 @@ export default function Login() {
   const navigate = useNavigate();
   const { login } = useAuth();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const success = login(email, password);
-    if (success) navigate("/");
-    else setError("Invalid email or password");
+    setError("");
+
+    try {
+      const response = await fetch("http://localhost:8080/api/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        setError(data.message || "Invalid email or password");
+        return;
+      }
+
+      // Save token and user info in localStorage
+      localStorage.setItem("token", data.token);
+      localStorage.setItem("user", JSON.stringify(data.user));
+
+      // Redirect based on role
+      const role = data.user.role.toLowerCase();
+      if (role === "admin") navigate("/admin");
+      else if (role === "superadmin") navigate("/superadmin");
+      else navigate("/user");
+    } catch (err) {
+      console.error("Login error:", err);
+      setError("Failed to connect to the server. Please try again later.");
+    }
   };
 
   return (
